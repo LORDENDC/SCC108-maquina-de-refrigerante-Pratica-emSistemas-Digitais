@@ -1,0 +1,6 @@
+
+State Machine - |maquina|estado
+Name estado.refrigerante_saiu estado.aguardando_requisicao estado.aguardando_dinheiro 
+estado.aguardando_dinheiro 0 0 0 
+estado.aguardando_requisicao 0 1 1 
+estado.refrigerante_saiu 1 0 1 

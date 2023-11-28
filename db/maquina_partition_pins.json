@@ -1,0 +1,109 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "saida[0]",
+					"strict" : false
+				},
+				{
+					"name" : "saida[1]",
+					"strict" : false
+				},
+				{
+					"name" : "refrigerante_saiu_display",
+					"strict" : false
+				},
+				{
+					"name" : "dinheiro_maquina_display[0]",
+					"strict" : false
+				},
+				{
+					"name" : "dinheiro_maquina_display[1]",
+					"strict" : false
+				},
+				{
+					"name" : "dinheiro_maquina_display[2]",
+					"strict" : false
+				},
+				{
+					"name" : "dinheiro_maquina_display[3]",
+					"strict" : false
+				},
+				{
+					"name" : "dinheiro_maquina_display[4]",
+					"strict" : false
+				},
+				{
+					"name" : "dinheiro_maquina_display[5]",
+					"strict" : false
+				},
+				{
+					"name" : "dinheiro_maquina_display[6]",
+					"strict" : false
+				},
+				{
+					"name" : "dinheiro_maquina_display[7]",
+					"strict" : false
+				},
+				{
+					"name" : "dinheiro_maquina_display[8]",
+					"strict" : false
+				},
+				{
+					"name" : "dinheiro_maquina_display[9]",
+					"strict" : false
+				},
+				{
+					"name" : "dinheiro_maquina_display[10]",
+					"strict" : false
+				},
+				{
+					"name" : "dinheiro_maquina_display[11]",
+					"strict" : false
+				},
+				{
+					"name" : "dinheiro_maquina_display[12]",
+					"strict" : false
+				},
+				{
+					"name" : "dinheiro_maquina_display[13]",
+					"strict" : false
+				},
+				{
+					"name" : "requisitado",
+					"strict" : false
+				},
+				{
+					"name" : "dinheiro_entrando[1]",
+					"strict" : false
+				},
+				{
+					"name" : "dinheiro_entrando[0]",
+					"strict" : false
+				},
+				{
+					"name" : "dinheiro_colocando",
+					"strict" : false
+				},
+				{
+					"name" : "reset_debouncer",
+					"strict" : false
+				},
+				{
+					"name" : "clk_button",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

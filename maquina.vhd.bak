@@ -12,9 +12,9 @@ ENTITY maquina is
         dinheiro_entrando: in std_logic_vector(1 downto 0);
         requisitado: in std_logic;
         saida: out std_logic_vector(1 downto 0);
-        refrigerante_saiu_display: out std_logic;
-        dinheiro_maquina_display: out std_logic_vector(13 downto 0);
-        reset: in std_logic
+        refrigerante_saiu: out std_logic;
+        dinheiro_maquina_display: out std_logic_vector(14 downto 0);
+        reset: in std_logic;
     );
 
 END maquina;
@@ -84,40 +84,38 @@ BEGIN
                 estado <= aguardando_dinheiro;
             ELSIF rising_edge(out_clk_db) THEN
                 IF (dinheiro_colocando = '1') THEN
-                    CASE dinheiro_entrando IS
+                    CASE dinheiro_entrando =>
                         WHEN "00" =>
-                            dinheiro_maquina <= dinheiro_maquina + "00001010";
+                            dinheiro_maquina <= dinheiro_maquina + 10;
                         WHEN "01" =>
-                            dinheiro_maquina <= dinheiro_maquina + "00011001";
+                            dinheiro_maquina <= dinheiro_maquina + 25;
                         WHEN "10" =>
-                            dinheiro_maquina <= dinheiro_maquina + "00110010";
+                            dinheiro_maquina <= dinheiro_maquina + 50;
                         WHEN "11" =>
-                            dinheiro_maquina <= dinheiro_maquina + "01100100";
+                            dinheiro_maquina <= dinheiro_maquina + 100;
                     END CASE;
-                END IF;
 
                 CASE estado IS
                     WHEN aguardando_dinheiro =>
-                        refrigerante_saiu_display <= '0';
-                        
-                        IF (requisitado = '1') THEN
-                            dinheiro_maquina <= "000000000";
-                        ELSIF (dinheiro_maquina = "01100100") THEN
+                        refrigerante_saiu <= '0';
+
+                        IF (dinheiro_maquina = 100) THEN
                             estado <= aguardando_requisicao;
-                        ELSIF (dinheiro_maquina > "01100100") THEN
+                        END IF;
+
+                        IF (dinheiro_maquina > 100) THEN
                             dinheiro_maquina <= "000000000";
                         END IF;
                     WHEN aguardando_requisicao =>
-                        IF (dinheiro_maquina > "01100100") THEN
+                        IF (dinheiro_maquina > 100) THEN
                             dinheiro_maquina <= "000000000";
-                            estado <= aguardando_dinheiro;
                         ELSIF (requisitado = '1') THEN
                             dinheiro_maquina <= "000000000";
                             estado <= refrigerante_saiu;
                         END IF;
                     WHEN refrigerante_saiu =>
                         estado <= aguardando_dinheiro;
-                        refrigerante_saiu_display <= '1';
+                        refrigerante_saiu <= '1';
                 END CASE;
             END IF;
 END PROCESS;
